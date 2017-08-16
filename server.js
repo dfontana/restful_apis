@@ -1,8 +1,8 @@
-let express = require('express');
-let app = express();
-let routes = require('./routes');
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose');
+const express       = require('express');
+const app           = express();
+const routes        = require('./routes');
+const bodyParser    = require('body-parser');
+const mongoose      = require('mongoose');
 
 // Connect to the database.
 mongoose.connect('localhost:3001/mongo_database_string');
@@ -13,9 +13,9 @@ app.use(bodyParser.urencoded({
 }));
 app.use(bodyParser.json());
 
-let port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
-// Register base route. All paths start with /api
+// API starts at '/api' 
 app.use('/api', routes);
 
 // Start Server
